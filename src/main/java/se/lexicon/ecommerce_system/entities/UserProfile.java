@@ -2,17 +2,16 @@ package se.lexicon.ecommerce_system.entities;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
+@Builder
 @Entity
-@Table(name = "ser_profiles")
+@Table(name = "user_profiles")
 public class UserProfile {
 
     @Id
@@ -24,4 +23,7 @@ public class UserProfile {
     private String phoneNumber;
     @Column(length = 500)
     private String bio;
+
+    @OneToOne(mappedBy = "userProfile")
+    private Customer customer;
 }
