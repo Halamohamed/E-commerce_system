@@ -1,10 +1,7 @@
 package se.lexicon.ecommerce_system.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.Instant;
 
@@ -12,6 +9,8 @@ import java.time.Instant;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
+@Builder
 @Entity
 @Table(name = "customers")
 public class Customer {
@@ -31,7 +30,7 @@ public class Customer {
     private Instant createAt;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(nullable = false,name = "address_id")
+    @JoinColumn(name = "address_id", nullable = false)
     private Address address;
 
     @OneToOne(cascade = CascadeType.ALL)
