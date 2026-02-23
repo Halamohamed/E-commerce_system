@@ -9,7 +9,7 @@ import java.time.Instant;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@ToString(exclude = "userProfile")
 @Builder
 @Entity
 @Table(name = "customers")
@@ -35,6 +35,7 @@ public class Customer {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name= "profile_id")
+    //@ToString.Exclude
     private UserProfile userProfile;
 
     @PrePersist

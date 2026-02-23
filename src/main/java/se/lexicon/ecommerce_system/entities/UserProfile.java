@@ -8,7 +8,7 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@ToString(exclude = "customer")
 @Builder
 @Entity
 @Table(name = "user_profiles")
