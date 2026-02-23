@@ -44,9 +44,8 @@ public class MyCommandLineRunner implements CommandLineRunner {
                 .email("hala@example.se")
                 .address(address1)
                 .userProfile(userProfile1).build();
-
         //addressRepository.save(address);
-        customerRepository.save(customer1);
+        //customerRepository.save(customer1);
         UserProfile userProfile2 = UserProfile.builder()
                 .nickname("Maha Hamid")
                 .phoneNumber("07456156")
@@ -67,7 +66,7 @@ public class MyCommandLineRunner implements CommandLineRunner {
                 .userProfile(userProfile2).build();
 
 
-        customerRepository.save(customer2);
+        //customerRepository.save(customer2);
         customerRepository.findAll().forEach(System.out::println);
 
 
