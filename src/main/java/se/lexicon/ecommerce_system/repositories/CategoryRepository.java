@@ -7,7 +7,9 @@ import java.util.List;
 
 public interface CategoryRepository  extends JpaRepository<Category,Long> {
 
-    List<Category> findByName(String categoryName);
-    Boolean existsByName(String categoryName);
+    List<Category> findByNameIgnoreCase(String categoryName);
+    Boolean existsByNameIgnoreCase(String categoryName);
+    List<Category> findByNameContainingIgnoreCase(String categoryName);
+    long countBy();
 
 }

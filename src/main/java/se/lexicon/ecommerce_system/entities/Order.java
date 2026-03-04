@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -24,6 +25,7 @@ public class Order {
     private Instant orderDate;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 30)
     private OrderStatus status;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -36,7 +38,7 @@ public class Order {
             orphanRemoval = true,
             fetch = FetchType.LAZY
     )
-    private List<OrderItem> items;
+    private List<OrderItem> items = new ArrayList<>();
 
     @PrePersist
     public void prePersist() {

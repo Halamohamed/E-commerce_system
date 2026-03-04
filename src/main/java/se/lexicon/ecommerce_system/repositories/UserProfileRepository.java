@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface UserProfileRepository extends JpaRepository<UserProfile,Long> {
 
-    Optional<UserProfile> findByNickname(String nickname);
+    Optional<UserProfile> findByNicknameIgnoreCase(String nickname);
     List<UserProfile> findByPhoneNumberContaining(String phoneNumber);
 
 }

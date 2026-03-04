@@ -7,4 +7,8 @@ import java.util.List;
 
 public interface AddressRepository extends JpaRepository<Address,Long> {
     List<Address> findByZipCode(String zipcode);
+
+    List<Address> findByCityIgnoreCase(String city);
+
+    List<Address> findByStreetContainingIgnoreCase(String streetKeyword);
 }

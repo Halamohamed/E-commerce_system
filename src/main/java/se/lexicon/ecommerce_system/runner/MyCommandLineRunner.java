@@ -9,7 +9,7 @@ import se.lexicon.ecommerce_system.entities.UserProfile;
 import se.lexicon.ecommerce_system.repositories.AddressRepository;
 import se.lexicon.ecommerce_system.repositories.CustomerRepository;
 import se.lexicon.ecommerce_system.repositories.UserProfileRepository;
-@Component
+//@Component
 public class MyCommandLineRunner implements CommandLineRunner {
 
     private AddressRepository addressRepository;

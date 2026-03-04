@@ -18,7 +18,7 @@ public interface PromotionRepository extends JpaRepository<Promotion, Long> {
     List<Promotion> findActiveOn(LocalDateTime date);
 
 
-    Optional<Promotion> findByCode(String code);
+    Optional<Promotion> findByCodeIgnoreCase(String code);
 
     List<Promotion> findByStartDateAfter(LocalDateTime date);
 

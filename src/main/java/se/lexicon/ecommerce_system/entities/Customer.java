@@ -9,6 +9,7 @@ import java.time.Instant;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true) //safe equals/hashCode
 @ToString(exclude = "userProfile")
 @Builder
 @Entity
@@ -38,6 +39,15 @@ public class Customer {
     //@ToString.Exclude
     private UserProfile userProfile;
 
+    public void setProfile(UserProfile userProfile) {
+        if(this.userProfile == null) {
+            this.userProfile.setCustomer(null);
+        }
+        this.userProfile = userProfile;
+        if(this.userProfile != null) {
+            userProfile.setCustomer(this);
+        }
+    }
     @PrePersist
     private void prePersist() {
         createAt = Instant.now();
