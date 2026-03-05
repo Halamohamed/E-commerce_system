@@ -1,10 +1,12 @@
 package se.lexicon.ecommerce_system.mapper;
 
+import jakarta.persistence.Column;
+import org.springframework.stereotype.Component;
 import se.lexicon.ecommerce_system.DTOs.productDTO.ProductRequest;
 import se.lexicon.ecommerce_system.DTOs.productDTO.ProductResponse;
 import se.lexicon.ecommerce_system.entities.Category;
 import se.lexicon.ecommerce_system.entities.Product;
-
+@Component
 public class ProductMapper {
 
     public ProductResponse toResponse(Product  product) {
