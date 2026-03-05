@@ -1,5 +1,6 @@
 package se.lexicon.ecommerce_system.service.impl;
 
+import org.springframework.stereotype.Service;
 import se.lexicon.ecommerce_system.DTOs.customerDTO.CustomerRequest;
 import se.lexicon.ecommerce_system.DTOs.customerDTO.CustomerResponse;
 import se.lexicon.ecommerce_system.entities.Customer;
@@ -7,7 +8,7 @@ import se.lexicon.ecommerce_system.exceptions.ResourceNotFoundException;
 import se.lexicon.ecommerce_system.mapper.CustomerMapper;
 import se.lexicon.ecommerce_system.repositories.CustomerRepository;
 import se.lexicon.ecommerce_system.service.CustomerService;
-
+@Service
 public class CustomerServiceImpl implements CustomerService {
 
     private CustomerRepository customerRepository;
