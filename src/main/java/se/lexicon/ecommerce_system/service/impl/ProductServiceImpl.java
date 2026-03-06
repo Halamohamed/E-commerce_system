@@ -10,7 +10,6 @@ import se.lexicon.ecommerce_system.entities.Product;
 import se.lexicon.ecommerce_system.exceptions.ResourceNotFoundException;
 import se.lexicon.ecommerce_system.mapper.ProductMapper;
 import se.lexicon.ecommerce_system.repositories.CategoryRepository;
-import se.lexicon.ecommerce_system.repositories.CustomerRepository;
 import se.lexicon.ecommerce_system.repositories.ProductRepository;
 import se.lexicon.ecommerce_system.service.ProductService;
 
