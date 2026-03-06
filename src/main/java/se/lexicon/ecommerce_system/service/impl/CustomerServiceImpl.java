@@ -1,6 +1,8 @@
 package se.lexicon.ecommerce_system.service.impl;
 
+
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import se.lexicon.ecommerce_system.DTOs.customerDTO.CustomerRequest;
 import se.lexicon.ecommerce_system.DTOs.customerDTO.CustomerResponse;
 import se.lexicon.ecommerce_system.entities.Customer;
@@ -20,6 +22,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    @Transactional
     public CustomerResponse register(CustomerRequest request) {
         if(customerRepository.existsByEmailIgnoreCase(request.email())){
             throw new IllegalArgumentException("Email already in use: " + request.email());
@@ -31,12 +34,14 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public CustomerResponse findById(Long id) throws ResourceNotFoundException {
         Customer customer = customerRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Customer not found:  " + id));
         return customerMapper.toResponse(customer);
     }
 
     @Override
+    @Transactional
     public CustomerResponse update(Long id, CustomerRequest request) throws ResourceNotFoundException {
         Customer customer = customerRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Customer not found:  " + id));
         customerMapper.updateEntity(customer, request);

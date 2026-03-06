@@ -1,6 +1,7 @@
 package se.lexicon.ecommerce_system.service.impl;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import se.lexicon.ecommerce_system.DTOs.orderDTO.OrderRequest;
 import se.lexicon.ecommerce_system.DTOs.orderDTO.OrderResponse;
 import se.lexicon.ecommerce_system.entities.Customer;
@@ -33,6 +34,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional
     public OrderResponse placeOrder(OrderRequest request) throws ResourceNotFoundException {
         Customer customer = customerRepository.findById(request.custerId()).orElseThrow(() -> new ResourceNotFoundException("Customer not found: " + request.custerId()));
         List<OrderItem> items = new ArrayList<>();
