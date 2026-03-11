@@ -12,7 +12,7 @@ import se.lexicon.ecommerce_system.DTOs.orderDTO.OrderResponse;
 import se.lexicon.ecommerce_system.exceptions.ResourceNotFoundException;
 import se.lexicon.ecommerce_system.service.OrderService;
 @RestController
-@RequestMapping
+@RequestMapping("/api/v1/orders")
 public class OrderController {
 
     private final OrderService orderService;
