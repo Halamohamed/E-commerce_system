@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import se.lexicon.ecommerce_system.DTOs.customerDTO.CustomerRequest;
 import se.lexicon.ecommerce_system.DTOs.customerDTO.CustomerResponse;
+import se.lexicon.ecommerce_system.exceptions.EmailAlreadyExistsException;
 import se.lexicon.ecommerce_system.exceptions.ResourceNotFoundException;
 import se.lexicon.ecommerce_system.service.CustomerService;
 @RestController
@@ -19,7 +20,7 @@ public class CustomerController {
     }
 
     @PostMapping
-    public ResponseEntity<CustomerResponse> register(@RequestBody @Valid CustomerRequest customerRequest) {
+    public ResponseEntity<CustomerResponse> register(@RequestBody @Valid CustomerRequest customerRequest) throws EmailAlreadyExistsException {
         CustomerResponse customerResponse = customerService.register(customerRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(customerResponse);
     }

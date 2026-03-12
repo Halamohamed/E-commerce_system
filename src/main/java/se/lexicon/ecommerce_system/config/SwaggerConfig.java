@@ -10,12 +10,12 @@ import org.springframework.context.annotation.Configuration;
 public class SwaggerConfig {
 
     @Bean
-    public OpenAPI customOpenAPI() {
+    public OpenAPI ecommerceAPI() {
         return new OpenAPI()
                 .info(new Info()
                         .title("Spring Boot REST API Documentation")
                         .version("1.0.0")
-                        .description("Spring Boot REST API Documentation"));
+                        .description("REST API for the E-commerce workshops project"));
     }
 
     @Bean

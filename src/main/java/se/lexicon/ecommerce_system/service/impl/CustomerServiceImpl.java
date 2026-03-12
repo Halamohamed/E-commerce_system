@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import se.lexicon.ecommerce_system.DTOs.customerDTO.CustomerRequest;
 import se.lexicon.ecommerce_system.DTOs.customerDTO.CustomerResponse;
 import se.lexicon.ecommerce_system.entities.Customer;
+import se.lexicon.ecommerce_system.exceptions.EmailAlreadyExistsException;
 import se.lexicon.ecommerce_system.exceptions.ResourceNotFoundException;
 import se.lexicon.ecommerce_system.mapper.CustomerMapper;
 import se.lexicon.ecommerce_system.repositories.CustomerRepository;
@@ -23,9 +24,9 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     @Transactional
-    public CustomerResponse register(CustomerRequest request) {
+    public CustomerResponse register(CustomerRequest request) throws EmailAlreadyExistsException {
         if(customerRepository.existsByEmailIgnoreCase(request.email())){
-            throw new IllegalArgumentException("Email already in use: " + request.email());
+            throw new EmailAlreadyExistsException("Email already in use: " + request.email());
         }
         Customer customer = customerMapper.toEntity(request);
         Customer savedCustomer = customerRepository.save(customer);
